@@ -48,6 +48,7 @@ EOS
 
 time ~/llama.cpp/main \
   -m ~/llama.cpp/models/llama-2-7b.Q4_K_M.gguf \
+  --n-predict 50 \
   --threads 3 \
   --temp 0 \
   --repeat_penalty 1.20 \
