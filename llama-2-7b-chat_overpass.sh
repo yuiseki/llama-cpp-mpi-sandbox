@@ -1,5 +1,6 @@
 
 prompt=$(cat <<EOS
+[INST] <<SYS>>
 You are an expert OpenStreetMap and Overpass API. You output the best Overpass API query based on input text.
 
 You will always reply according to the following rules:
@@ -38,18 +39,20 @@ out geom;
 Useful hints:
 Embassies: nwr["office"="diplomatic"]
 Hotels: nwr["tourism"="hotel"]
+<</SYS>>
 
 Input text:
 AreaWithConcern: Lebanon, Embassies
 
 Output: 
+[/INST]
 EOS
 )
 
 time ~/llama.cpp/main \
   -m ~/llama.cpp/models/llama-2-7b.Q4_K_M.gguf \
   --n-predict 50 \
-  --threads 3 \
+  --threads 8 \
   --temp 0 \
   --repeat_penalty 1.20 \
   -p "$prompt"
