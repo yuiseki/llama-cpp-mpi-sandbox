@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  llama-cpp:
+    image: local/llama.cpp:full
+    ports:
+      - 8080:8080
+    tty: true
+    command: --server -m /models/llama-2-7b.Q4_K_M.gguf --port 8080 --host 0.0.0.0
+    volumes:
+      - ~/llama.cpp/models:/models
