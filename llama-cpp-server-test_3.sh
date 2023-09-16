@@ -1,6 +1,5 @@
-
-data='{ "prompt": "Hello in Japanese is ", "temperature": 0.0 }'
-
+prompt=$1
+data='{"prompt": "'"${prompt}"'", "temperature": 0.0, "n_predict": 128, "stop": ["\n"]}'
 
 curl -s --request POST \
     --url http://localhost:8080/completion \
