@@ -15,6 +15,7 @@ Input text:
 AreaWithConcern: Sudan, Hospitals
 Output:
 \`\`\`
+// AreaWithConcern: Sudan, Hospitals
 [out:json][timeout:30000];
 area["name"="Sudan"]->.searchArea;
 (
@@ -30,7 +31,7 @@ Embassies: nwr["office"="diplomatic"]
 Hotels: nwr["tourism"="hotel"]
 
 Input text:
-AreaWithConcern: Lebanon, Embassies
+AreaWithConcern: $1
 
 Output: 
 EOS
