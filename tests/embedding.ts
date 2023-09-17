@@ -1,4 +1,4 @@
-import { LlamaCppServerEmbeddings } from "./src/embeddings/llama_cpp_server.ts";
+import { LlamaCppServerEmbeddings } from "../src/embeddings/llama_cpp_server.js";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 
 const embeddings = new LlamaCppServerEmbeddings();

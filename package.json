@@ -7,7 +7,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "main": "node --loader ts-node/esm ./main.ts"
+    "embedding": "node --loader ts-node/esm ./tests/embedding.ts",
+    "completion": "node --loader ts-node/esm ./tests/completion.ts"
   },
   "author": "",
   "license": "ISC",
