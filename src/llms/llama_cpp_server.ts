@@ -1,6 +1,15 @@
-import { LLM, BaseLLMParams } from "langchain/llms/base";
+import { LLM, BaseLLMParams, BaseLLMCallOptions } from "langchain/llms/base";
 
-export class LlamaCppServerCompletion extends LLM {
+type LlamaCppServerCompletionCallParams = {
+  temperature: number;
+  n_predict: number;
+  repeat_penalty: number;
+  stop: string[];
+};
+
+export class LlamaCppServerCompletion extends LLM<
+  BaseLLMCallOptions & LlamaCppServerCompletionCallParams
+> {
   constructor(fields?: BaseLLMParams) {
     super(fields ?? {});
   }
@@ -11,7 +20,7 @@ export class LlamaCppServerCompletion extends LLM {
   ): Promise<string> {
     return this.caller.call(async () => {
       try {
-        const res = await this.callCompletionApi(prompt);
+        const res = await this.callCompletionApi(prompt, options);
         const resJson = await res.json();
         return resJson.content;
       } catch (e) {
@@ -24,7 +33,10 @@ export class LlamaCppServerCompletion extends LLM {
     return "llama-cpp-server";
   }
 
-  private async callCompletionApi(input: string) {
+  private async callCompletionApi(
+    input: string,
+    options: LlamaCppServerCompletionCallParams
+  ) {
     return fetch("http://localhost:8080/completion", {
       method: "POST",
       headers: {
@@ -32,10 +44,7 @@ export class LlamaCppServerCompletion extends LLM {
       },
       body: JSON.stringify({
         prompt: input,
-        temperature: 0.0,
-        n_predict: 128,
-        repeat_penalty: 1.2,
-        stop: ["\n"],
+        ...options,
       }),
     });
   }

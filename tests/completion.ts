@@ -8,5 +8,10 @@ Answer:
 `;
 
 const model = new LlamaCppServerCompletion({});
-const res = await model.call(prompt);
+const res = await model.call(prompt, {
+  temperature: 0.0,
+  n_predict: 128,
+  repeat_penalty: 1.2,
+  stop: ["\n"],
+});
 console.log({ res });
