@@ -1,6 +1,7 @@
 import { Embeddings } from "langchain/embeddings/base";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 
+// From: https://github.com/langchain-ai/langchainjs/blob/main/langchain/src/util/chunk.ts
 const chunkArray = <T>(arr: T[], chunkSize: number) =>
   arr.reduce((chunks, elem, index) => {
     const chunkIndex = Math.floor(index / chunkSize);
