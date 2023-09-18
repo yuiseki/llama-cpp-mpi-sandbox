@@ -10,6 +10,7 @@
     "logits",
     "Mlock",
     "Mmap",
+    "undocs",
     "vectorstores"
   ]
 }
