@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "langchain": "^0.0.150",
+    "langchain": "^0.0.211",
     "pdf-parse": "^1.1.1",
     "ts-node": "^10.9.1"
   }
