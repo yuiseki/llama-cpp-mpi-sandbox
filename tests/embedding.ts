@@ -7,12 +7,25 @@ const vectorStore = await MemoryVectorStore.fromTexts(
     "Hello world",
     "Bye bye",
     "hello nice world",
+    "Intelligence",
+    "Artificial Intelligence",
     "Artificial General Intelligence",
+    "Geospatial Information System",
+    "Quantum Computer",
     "Climate Change",
+    "こんにちは",
+    "知能",
+    "人工知能",
+    "汎用人工知能",
+    "地理空間情報システム",
+    "量子コンピューター",
   ],
-  [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }],
+  [],
   embeddings
 );
 
-const resultOne = await vectorStore.similaritySearch("人工知能", 1);
-console.log(resultOne);
+const results = await vectorStore.similaritySearch(
+  "Artificial Intelligence",
+  2
+);
+console.log(results);
