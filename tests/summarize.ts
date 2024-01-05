@@ -1,4 +1,4 @@
-import { LlamaCppServerCompletion } from "../src/llms/llama_cpp_server.js";
+import { LlamaCppServerCompletion } from "../src/llms/llama_cpp_server.ts";
 import { loadSummarizationChain } from "langchain/chains";
 
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";

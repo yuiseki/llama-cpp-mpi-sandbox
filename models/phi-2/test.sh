@@ -4,7 +4,6 @@ Output:
 EOS
 )
 
-
 time ~/llama.cpp/main \
   -m ~/llama.cpp/models/phi-2.Q4_0.gguf \
   --threads `fgrep 'processor' /proc/cpuinfo | wc -l` \
