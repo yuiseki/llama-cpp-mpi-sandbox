@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "embedding": "node --loader ts-node/esm ./tests/embedding.ts",
     "completion": "node --loader ts-node/esm ./tests/completion.ts",
-    "summarize": "node --loader ts-node/esm ./tests/summarize.ts"
+    "summarize": "node --loader ts-node/esm ./tests/summarize.ts",
+    "exampleSelector": "node --loader ts-node/esm ./tests/exampleSelector.ts"
   },
   "author": "",
   "license": "ISC",

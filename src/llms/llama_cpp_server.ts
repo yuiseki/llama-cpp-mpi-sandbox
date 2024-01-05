@@ -49,7 +49,6 @@ export class LlamaCppServerCompletion
       repeat_penalty: this.repeat_penalty,
       stop: this.stop,
     };
-    console.log(body);
     const res = await fetch("http://localhost:8080/completion", {
       method: "POST",
       headers: {
