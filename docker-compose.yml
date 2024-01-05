@@ -6,6 +6,12 @@ services:
     ports:
       - 8080:8080
     tty: true
-    command: --server -m /models/phi-2.Q4_0.gguf --mlock --no-mmap --ctx-size 2048 --threads 8 --port 8080 --host 0.0.0.0 --embedding
+    command: >
+      --server
+      --model /models/${MODEL_NAME:-phi-2.Q4_0.gguf}
+      --ctx-size ${CONTEXT_SIZE:-2048}
+      --threads ${THREADS:-8}
+      --mlock --no-mmap --embedding
+      --port 8080 --host 0.0.0.0
     volumes:
       - ~/llama.cpp/models:/models
